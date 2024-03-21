@@ -1,0 +1,144 @@
+import java.util.Scanner;
+import java.lang.Math;
+
+public class ScientificCalculator {
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        while (true) {
+            System.out.println("Select operation:");
+            System.out.println("1. Add");
+            System.out.println("2. Subtract");
+            System.out.println("3. Multiply");
+            System.out.println("4. Divide");
+            System.out.println("5. Power");
+            System.out.println("6. Square Root");
+            System.out.println("7. Factorial");
+            System.out.println("8. Sine");
+            System.out.println("9. Cosine");
+            System.out.println("10. Tangent");
+            System.out.println("11. Exit");
+            System.out.print("Enter your choice: ");
+            int choice = scanner.nextInt();
+            
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter first number: ");
+                    double addNum1 = scanner.nextDouble();
+                    System.out.print("Enter second number: ");
+                    double addNum2 = scanner.nextDouble();
+                    System.out.println("Result: " + add(addNum1, addNum2));
+                    break;
+                case 2:
+                    System.out.print("Enter first number: ");
+                    double subNum1 = scanner.nextDouble();
+                    System.out.print("Enter second number: ");
+                    double subNum2 = scanner.nextDouble();
+                    System.out.println("Result: " + subtract(subNum1, subNum2));
+                    break;
+                case 3:
+                    System.out.print("Enter first number: ");
+                    double mulNum1 = scanner.nextDouble();
+                    System.out.print("Enter second number: ");
+                    double mulNum2 = scanner.nextDouble();
+                    System.out.println("Result: " + multiply(mulNum1, mulNum2));
+                    break;
+                case 4:
+                    System.out.print("Enter first number: ");
+                    double divNum1 = scanner.nextDouble();
+                    System.out.print("Enter second number: ");
+                    double divNum2 = scanner.nextDouble();
+                    System.out.println("Result: " + divide(divNum1, divNum2));
+                    break;
+                case 5:
+                    System.out.print("Enter base number: ");
+                    double powNum1 = scanner.nextDouble();
+                    System.out.print("Enter exponent number: ");
+                    double powNum2 = scanner.nextDouble();
+                    System.out.println("Result: " + power(powNum1, powNum2));
+                    break;
+                case 6:
+                    System.out.print("Enter a number: ");
+                    double sqrtNum = scanner.nextDouble();
+                    System.out.println("Result: " + sqrt(sqrtNum));
+                    break;
+                case 7:
+                    System.out.print("Enter a number: ");
+                    int factNum = scanner.nextInt();
+                    System.out.println("Result: " + factorial(factNum));
+                    break;
+                case 8:
+                    System.out.print("Enter angle in degrees: ");
+                    double sinNum = scanner.nextDouble();
+                    System.out.println("Result: " + sin(sinNum));
+                    break;
+                case 9:
+                    System.out.print("Enter angle in degrees: ");
+                    double cosNum = scanner.nextDouble();
+                    System.out.println("Result: " + cos(cosNum));
+                    break;
+                case 10:
+                    System.out.print("Enter angle in degrees: ");
+                    double tanNum = scanner.nextDouble();
+                    System.out.println("Result: " + tan(tanNum));
+                    break;
+                case 11:
+                    System.out.println("Exiting calculator. Goodbye!");
+                    System.exit(0);
+                default:
+                    System.out.println("Invalid choice. Please enter a number between 1 and 11.");
+            }
+        }
+    }
+    
+    public static double add(double x, double y) {
+        return x + y;
+    }
+    
+    public static double subtract(double x, double y) {
+        return x - y;
+    }
+    
+    public static double multiply(double x, double y) {
+        return x * y;
+    }
+    
+    public static double divide(double x, double y) {
+        if (y == 0) {
+            System.out.println("Error: Cannot divide by zero!");
+            return Double.NaN;
+        }
+        return x / y;
+    }
+    
+    public static double power(double x, double y) {
+        return Math.pow(x, y);
+    }
+    
+    public static double sqrt(double x) {
+        return Math.sqrt(x);
+    }
+    
+    public static int factorial(int x) {
+        if (x == 0)
+            return 1;
+        int fact = 1;
+        for (int i = 1; i <= x; i++) {
+            fact *= i;
+        }
+        return fact;
+    }
+    
+    public static double sin(double x) {
+        return Math.sin(Math.toRadians(x));
+    }
+    
+    public static double cos(double x) {
+        return Math.cos(Math.toRadians(x));
+    }
+    
+    public static double tan(double x) {
+        return Math.tan(Math.toRadians(x));
+    }
+}
