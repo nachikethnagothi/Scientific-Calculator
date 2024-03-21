@@ -1,0 +1,147 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+// Function prototypes
+double add(double x, double y);
+double subtract(double x, double y);
+double multiply(double x, double y);
+double divide(double x, double y);
+double power(double x, double y);
+double sqrt(double x);
+int factorial(int x);
+double sin(double x);
+double cos(double x);
+double tan(double x);
+
+int main() {
+    int choice;
+    double num1, num2;
+    
+    while (true) {
+        cout << "Select operation:" << endl;
+        cout << "1. Add" << endl;
+        cout << "2. Subtract" << endl;
+        cout << "3. Multiply" << endl;
+        cout << "4. Divide" << endl;
+        cout << "5. Power" << endl;
+        cout << "6. Square Root" << endl;
+        cout << "7. Factorial" << endl;
+        cout << "8. Sine" << endl;
+        cout << "9. Cosine" << endl;
+        cout << "10. Tangent" << endl;
+        cout << "11. Exit" << endl;
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch(choice) {
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+                cout << "Enter two numbers: ";
+                cin >> num1 >> num2;
+                switch(choice) {
+                    case 1:
+                        cout << "Result: " << add(num1, num2) << endl;
+                        break;
+                    case 2:
+                        cout << "Result: " << subtract(num1, num2) << endl;
+                        break;
+                    case 3:
+                        cout << "Result: " << multiply(num1, num2) << endl;
+                        break;
+                    case 4:
+                        cout << "Result: " << divide(num1, num2) << endl;
+                        break;
+                    case 5:
+                        cout << "Result: " << power(num1, num2) << endl;
+                        break;
+                }
+                break;
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+            case 10:
+                cout << "Enter a number: ";
+                cin >> num1;
+                switch(choice) {
+                    case 6:
+                        cout << "Result: " << sqrt(num1) << endl;
+                        break;
+                    case 7:
+                        cout << "Result: " << factorial((int)num1) << endl;
+                        break;
+                    case 8:
+                        cout << "Result: " << sin(num1) << endl;
+                        break;
+                    case 9:
+                        cout << "Result: " << cos(num1) << endl;
+                        break;
+                    case 10:
+                        cout << "Result: " << tan(num1) << endl;
+                        break;
+                }
+                break;
+            case 11:
+                return 0; // Exit the program
+            default:
+                cout << "Invalid choice. Please try again." << endl;
+        }
+    }
+
+    return 0;
+}
+
+// Function definitions
+double add(double x, double y) {
+    return x + y;
+}
+
+double subtract(double x, double y) {
+    return x - y;
+}
+
+double multiply(double x, double y) {
+    return x * y;
+}
+
+double divide(double x, double y) {
+    if (y == 0) {
+        cout << "Error: Cannot divide by zero!" << endl;
+        return NAN; // Not-A-Number
+    }
+    return x / y;
+}
+
+double power(double x, double y) {
+    return pow(x, y);
+}
+
+double sqrt(double x) {
+    return sqrt(x);
+}
+
+int factorial(int x) {
+    if (x == 0) return 1;
+    int result = 1;
+    for (int i = 2; i <= x; i++) {
+        result *= i;
+    }
+    return result;
+}
+
+double sin(double x) {
+    return sin(x);
+}
+
+double cos(double x) {
+    return cos(x);
+}
+
+double tan(double x) {
+    return tan(x);
+}
