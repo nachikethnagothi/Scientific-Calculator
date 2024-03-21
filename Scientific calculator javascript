@@ -1,0 +1,119 @@
+// Define functions for basic arithmetic operations
+function add(x, y) {
+    return x + y;
+}
+
+function subtract(x, y) {
+    return x - y;
+}
+
+function multiply(x, y) {
+    return x * y;
+}
+
+function divide(x, y) {
+    if (y === 0) {
+        return "Error: Cannot divide by zero!";
+    }
+    return x / y;
+}
+
+// Define additional scientific functions
+function power(x, y) {
+    return Math.pow(x, y);
+}
+
+function sqrt(x) {
+    return Math.sqrt(x);
+}
+
+function factorial(x) {
+    if (x === 0) return 1;
+    let result = 1;
+    for (let i = 2; i <= x; i++) {
+        result *= i;
+    }
+    return result;
+}
+
+function sin(x) {
+    return Math.sin(x * Math.PI / 180); // Convert degrees to radians
+}
+
+function cos(x) {
+    return Math.cos(x * Math.PI / 180); // Convert degrees to radians
+}
+
+function tan(x) {
+    return Math.tan(x * Math.PI / 180); // Convert degrees to radians
+}
+
+// Main function to handle user input and perform calculations
+function main() {
+    while (true) {
+        let choice = parseInt(prompt("Select operation:\n1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Power\n6. Square Root\n7. Factorial\n8. Sine\n9. Cosine\n10. Tangent\n11. Exit"));
+        
+        switch (choice) {
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+                let num1 = parseFloat(prompt("Enter first number:"));
+                let num2 = parseFloat(prompt("Enter second number:"));
+                let result;
+                switch (choice) {
+                    case 1:
+                        result = add(num1, num2);
+                        break;
+                    case 2:
+                        result = subtract(num1, num2);
+                        break;
+                    case 3:
+                        result = multiply(num1, num2);
+                        break;
+                    case 4:
+                        result = divide(num1, num2);
+                        break;
+                    case 5:
+                        result = power(num1, num2);
+                        break;
+                }
+                alert("Result: " + result);
+                break;
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+            case 10:
+                let num = parseFloat(prompt("Enter a number:"));
+                let scientificResult;
+                switch (choice) {
+                    case 6:
+                        scientificResult = sqrt(num);
+                        break;
+                    case 7:
+                        scientificResult = factorial(num);
+                        break;
+                    case 8:
+                        scientificResult = sin(num);
+                        break;
+                    case 9:
+                        scientificResult = cos(num);
+                        break;
+                    case 10:
+                        scientificResult = tan(num);
+                        break;
+                }
+                alert("Result: " + scientificResult);
+                break;
+            case 11:
+                return; // Exit the function
+            default:
+                alert("Invalid choice. Please try again.");
+        }
+    }
+}
+
+// Call the main function to start the calculator
+main();
